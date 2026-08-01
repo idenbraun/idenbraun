@@ -1,0 +1,16 @@
+{
+  "testcase": {
+    "label": "Тест-кейсы",
+    "docs": [
+      { "title": "Название документа", "project": "Memento", "file": "test-case-memento.pdf" }
+    ]
+  },
+  "checklist": {
+    "label": "Чек-листы",
+    "docs": []
+  },
+  "bugreport": {
+    "label": "Баг-репорты",
+    "docs": []
+  }
+}
