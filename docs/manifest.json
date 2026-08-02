@@ -15,27 +15,27 @@
     {
       "title": "Календарь в виджете бронирования обрезается",
       "project": "Сайт гостиницы «Артелеком»",
-      "file": "bug-report-artelecom-calendar.pdf"
+      "file": "docs/bug-report-artelecom-calendar.pdf"
     },
     {
       "title": "Поле «Имя» принимает любые символы без валидации",
       "project": "Сайт гостиницы «Артелеком»",
-      "file": "bug-report-artelecom-name-field.pdf"
+      "file": "docs/bug-report-artelecom-name-field.pdf"
     },
     {
       "title": "Поле «Имя» принимает любые символы без валидации",
       "project": "Сайт бани «Мельница»",
-      "file": "bug-report-melnitsa-name-field.pdf"
+      "file": "docs/bug-report-melnitsa-name-field.pdf"
     },
     {
       "title": "Поле «Телефон» принимает номера без валидации",
       "project": "Сайт бани «Мельница»",
-      "file": "bug-report-melnitsa-phone-field.pdf"
+      "file": "docs/bug-report-melnitsa-phone-field.pdf"
     },
     {
       "title": "Номера телефонов в шапке и карточках филиалов обрезаны",
       "project": "Сайт бани «Мельница»",
-      "file": "bug-report-melnitsa-phone-cut.pdf"
+      "file": "docs/bug-report-melnitsa-phone-cut.pdf"
     }
   ]
 }
