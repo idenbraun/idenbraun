@@ -7,7 +7,28 @@
   },
   "checklist": {
     "label": "Чек-листы",
-    "docs": []
+    "docs": [
+      {
+        "title": "Регресс дыхательных техник",
+        "project": "Breath",
+        "file": "checklist-breath.pdf"
+      },
+      {
+        "title": "Регресс счётчика лет и экспорта",
+        "project": "Memento",
+        "file": "checklist-memento.pdf"
+      },
+      {
+        "title": "Регресс расчёта циклов сна",
+        "project": "Sleepy",
+        "file": "checklist-sleepy.pdf"
+      },
+      {
+        "title": "Регресс AI-анализа и экспорта",
+        "project": "Balance",
+        "file": "checklist-balance.pdf"
+      }
+    ]
   },
   "bugreport": {
     "label": "Баг-репорты",
