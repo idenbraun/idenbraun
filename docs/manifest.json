@@ -2,11 +2,26 @@
   "testcase": {
     "label": "Тест-кейсы",
     "docs": [
-      { "title": "Ввод даты рождения и отображение счётчика прожитых лет", "project": "Memento", "file": "test-case-memento.pdf" },
-      { "title": "Запуск техники «Расслабление» (4-7-8) и вибрация при смене фазы", "project": "Breath", "file": "test-case-breath.pdf" },
-      { "title": "Расчёт времени отхода ко сну по времени пробуждения", "project": "Sleepy", "file": "test-case-sleepy.pdf" },
-      { "title": "Заполнение колеса баланса и получение AI-анализа", "project": "Balance", "file": "test-case-balance.pdf" },
-      { "title": "Валидация поля «Имя» в форме бронирования", "project": "Сайт гостиницы «Артелеком»", "file": "test-case-artelecom-hotel.pdf" }
+      { "title": "Ввод даты рождения и отображение счётчика прожитых лет", 
+        "project": "Memento", 
+        "file": "test-case-memento.pdf" 
+      },
+      { "title": "Запуск техники «Расслабление» (4-7-8) и вибрация при смене фазы", 
+        "project": "Breath", 
+        "file": "test-case-breath.pdf" 
+      },
+      { "title": "Расчёт времени отхода ко сну по времени пробуждения", 
+        "project": "Sleepy", 
+        "file": "test-case-sleepy.pdf" 
+      },
+      { "title": "Заполнение колеса баланса и получение AI-анализа", 
+        "project": "Balance", 
+        "file": "test-case-balance.pdf" 
+      },
+      { "title": "Валидация поля «Имя» в форме бронирования", 
+        "project": "Сайт гостиницы «Артелеком»", 
+        "file": "test-case-artelecom-hotel.pdf" 
+      }
     ]
   },
   "checklist": {
