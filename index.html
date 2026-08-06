@@ -367,7 +367,9 @@ body.modal-open{ overflow:hidden; }
         Ручное тестирование веб-приложений · изучаю автоматизацию на Java · пишу тест-кейсы и баг-репорты, в которых не нужно переспрашивать.
       </p>
       <div class="hero-buttons">
-        <button type="button" class="btn btn-primary" id="resumeBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать резюме</button>
+        <a href="docs/resume.pdf" target="_blank" class="btn btn-primary" id="resumeBtn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать резюме
+        </a>
         <a href="https://github.com/idenbraun" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub</a>
       </div>
     </div>
@@ -659,7 +661,7 @@ const pdfSidebar = document.getElementById('pdfModalSidebar');
 const pdfDownloadBtn = document.getElementById('pdfModalDownload');
 
 const fallbackLibrary = {
-  resume:    { label: 'Резюме',      docs: [] },
+  resume:    { label: 'Резюме',      docs: [{ title: 'Резюме Дениса Брауна', file: 'resume.pdf' }] },
   testcase:  { label: 'Тест-кейсы',  docs: [] },
   checklist: { label: 'Чек-листы',   docs: [] },
   bugreport: { label: 'Баг-репорты', docs: [] }
@@ -686,16 +688,17 @@ async function loadDocsLibrary(){
   try{
     const res = await fetch('docs/manifest.json');
     if (!res.ok) throw new Error('manifest not found');
-    docsLibrary = await res.json();
+    const data = await res.json();
+    docsLibrary = { ...fallbackLibrary, ...data };
   }catch(e){
-    docsLibrary = fallbackLibrary;
-    console.warn('docs/manifest.json не загрузился - показано пустое состояние. Если тестируешь локально двойным кликом по файлу, запусти локальный сервер (например: python3 -m http.server) или открой сайт после публикации - там fetch() работает как надо.');
+    console.warn('docs/manifest.json не загрузился. Использую fallback.');
   }
   renderDocCounts();
 }
 
 function renderSidebar(categoryKey){
   const cat = docsLibrary[categoryKey];
+  if (!cat) return;
   pdfSidebar.innerHTML = '';
   cat.docs.forEach((doc, i) => {
     const btn = document.createElement('button');
@@ -711,6 +714,7 @@ function renderSidebar(categoryKey){
 
 function selectDoc(categoryKey, index){
   const cat = docsLibrary[categoryKey];
+  if (!cat || !cat.docs || !cat.docs[index]) return;
   const doc = cat.docs[index];
   pdfSidebar.querySelectorAll('.pdf-doc-item').forEach((el, i) => el.classList.toggle('active', i === index));
   pdfType.textContent = cat.label;
@@ -718,7 +722,6 @@ function selectDoc(categoryKey, index){
   pdfFrame.removeAttribute('srcdoc');
   pdfFrame.src = doc.file ? `docs/${doc.file}` : '';
 
-  // Показываем кнопку скачивания, если файл существует
   if (doc.file) {
     pdfDownloadBtn.href = `docs/${doc.file}`;
     pdfDownloadBtn.download = doc.file;
@@ -753,11 +756,6 @@ function closePdfModal(){
   document.body.classList.remove('modal-open');
   setTimeout(() => { pdfFrame.src = ''; pdfFrame.removeAttribute('srcdoc'); }, 300);
 }
-
-// Кнопка "Скачать резюме" в hero - открывает модалку с резюме
-document.getElementById('resumeBtn').addEventListener('click', () => {
-  openCategoryModal('resume');
-});
 
 document.querySelectorAll('.artifact-card').forEach(card => {
   card.addEventListener('click', () => openCategoryModal(card.getAttribute('data-category')));
