@@ -1,36 +1,82 @@
 {
-  "resume": {
-    "file": "resume.pdf",
-    "title": "Резюме - Денис Браун, QA Engineer",
-    "updated": "2026-08-06"
-  },
   "testcase": {
     "label": "Тест-кейсы",
     "docs": [
-      { "title": "Ввод даты рождения и отображение счётчика прожитых лет", "project": "Memento", "file": "test-case-memento.pdf" },
-      { "title": "Запуск техники «Расслабление» (4-7-8) и вибрация при смене фазы", "project": "Breath", "file": "test-case-breath.pdf" },
-      { "title": "Расчёт времени отхода ко сну по времени пробуждения", "project": "Sleepy", "file": "test-case-sleepy.pdf" },
-      { "title": "Заполнение колеса баланса и получение AI-анализа", "project": "Balance", "file": "test-case-balance.pdf" },
-      { "title": "Валидация поля «Имя» в форме бронирования", "project": "Сайт гостиницы «Артелеком»", "file": "test-case-artelecom-hotel.pdf" }
+      { "title": "Ввод даты рождения и отображение счётчика прожитых лет", 
+        "project": "Memento", 
+        "file": "test-case-memento.pdf" 
+      },
+      { "title": "Запуск техники «Расслабление» (4-7-8) и вибрация при смене фазы", 
+        "project": "Breath", 
+        "file": "test-case-breath.pdf" 
+      },
+      { "title": "Расчёт времени отхода ко сну по времени пробуждения", 
+        "project": "Sleepy", 
+        "file": "test-case-sleepy.pdf" 
+      },
+      { "title": "Заполнение колеса баланса и получение AI-анализа", 
+        "project": "Balance", 
+        "file": "test-case-balance.pdf" 
+      },
+      { "title": "Валидация поля «Имя» в форме бронирования", 
+        "project": "Сайт гостиницы «Артелеком»", 
+        "file": "test-case-artelecom-hotel.pdf" 
+      }
     ]
   },
   "checklist": {
     "label": "Чек-листы",
     "docs": [
-      { "title": "Регресс дыхательных техник", "project": "Breath", "file": "checklist-breath.pdf" },
-      { "title": "Регресс счётчика лет и экспорта", "project": "Memento", "file": "checklist-memento.pdf" },
-      { "title": "Регресс расчёта циклов сна", "project": "Sleepy", "file": "checklist-sleepy.pdf" },
-      { "title": "Регресс AI-анализа и экспорта", "project": "Balance", "file": "checklist-balance.pdf" }
+      {
+        "title": "Регресс дыхательных техник",
+        "project": "Breath",
+        "file": "checklist-breath.pdf"
+      },
+      {
+        "title": "Регресс счётчика лет и экспорта",
+        "project": "Memento",
+        "file": "checklist-memento.pdf"
+      },
+      {
+        "title": "Регресс расчёта циклов сна",
+        "project": "Sleepy",
+        "file": "checklist-sleepy.pdf"
+      },
+      {
+        "title": "Регресс AI-анализа и экспорта",
+        "project": "Balance",
+        "file": "checklist-balance.pdf"
+      }
     ]
   },
   "bugreport": {
     "label": "Баг-репорты",
     "docs": [
-      { "title": "Календарь в виджете бронирования обрезается", "project": "Сайт гостиницы «Артелеком»", "file": "bug-report-artelecom-calendar.pdf" },
-      { "title": "Поле «Имя» принимает любые символы без валидации", "project": "Сайт гостиницы «Артелеком»", "file": "bug-report-artelecom-name-field.pdf" },
-      { "title": "Поле «Имя» принимает любые символы без валидации", "project": "Сайт бани «Мельница»", "file": "bug-report-melnitsa-name-field.pdf" },
-      { "title": "Поле «Телефон» принимает номера без валидации", "project": "Сайт бани «Мельница»", "file": "bug-report-melnitsa-phone-field.pdf" },
-      { "title": "Номера телефонов в шапке и карточках филиалов обрезаны", "project": "Сайт бани «Мельница»", "file": "bug-report-melnitsa-phone-cut.pdf" }
+      {
+        "title": "Календарь в виджете бронирования обрезается",
+        "project": "Сайт гостиницы «Артелеком»",
+        "file": "bug-report-artelecom-calendar.pdf"
+      },
+      {
+        "title": "Поле «Имя» принимает любые символы без валидации",
+        "project": "Сайт гостиницы «Артелеком»",
+        "file": "bug-report-artelecom-name-field.pdf"
+      },
+      {
+        "title": "Поле «Имя» принимает любые символы без валидации",
+        "project": "Сайт бани «Мельница»",
+        "file": "bug-report-melnitsa-name-field.pdf"
+      },
+      {
+        "title": "Поле «Телефон» принимает номера без валидации",
+        "project": "Сайт бани «Мельница»",
+        "file": "bug-report-melnitsa-phone-field.pdf"
+      },
+      {
+        "title": "Номера телефонов в шапке и карточках филиалов обрезаны",
+        "project": "Сайт бани «Мельница»",
+        "file": "bug-report-melnitsa-phone-cut.pdf"
+      }
     ]
   }
 }
