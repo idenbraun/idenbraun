@@ -754,9 +754,12 @@ function closePdfModal(){
   setTimeout(() => { pdfFrame.src = ''; pdfFrame.removeAttribute('srcdoc'); }, 300);
 }
 
-// Кнопка "Скачать резюме" в hero - открывает модалку с резюме
+  setTimeout(() => { pdfFrame.src = ''; pdfFrame.removeAttribute('srcdoc'); }, 300);
+}
+
+// Кнопка "Скачать резюме" в hero - открывает PDF в новой вкладке
 document.getElementById('resumeBtn').addEventListener('click', () => {
-  openCategoryModal('resume');
+  window.open('docs/resume.pdf', '_blank');
 });
 
 document.querySelectorAll('.artifact-card').forEach(card => {
