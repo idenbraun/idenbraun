@@ -14,31 +14,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-/* =========================================================
-   ТОКЕНЫ. Меняй только здесь - весь сайт пересчитается сам.
-   ========================================================= */
 :root{
   --bg:          #F6F7F5;
   --bg-panel:    #FFFFFF;
   --bg-inset:    #EEF0EE;
-
   --ink:         #1C2321;
   --ink-soft:    #5B6560;
   --ink-mute:    #93998F;
-
   --line:        rgba(28,35,33,0.10);
   --line-strong: rgba(28,35,33,0.16);
-
   --accent:      #0F6B5C;
   --accent-soft: rgba(15,107,92,0.08);
   --accent-line: rgba(15,107,92,0.35);
-
   --warn:        #B5790A;
   --warn-soft:   rgba(181,121,10,0.10);
-
   --alert:       #B23A2E;
   --alert-soft:  rgba(178,58,46,0.08);
-
   --radius: 10px;
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
@@ -63,7 +54,6 @@ section{ padding:88px 0; }
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
 .reveal.active{ opacity:1; transform:translateY(0); }
 
-/* ===================== NAV + СТАТУС-СТРОКА ===================== */
 .navbar{
   position:sticky; top:0; z-index:100;
   background:rgba(246,247,245,0.9); backdrop-filter:blur(10px);
@@ -85,13 +75,11 @@ section{ padding:88px 0; }
 }
 .status-strip .container{ display:flex; align-items:center; gap:8px; padding:7px 24px; font-family:var(--font-mono); font-size:.68rem; color:var(--ink-mute); }
 .status-dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-.status-dot::after{ content:''; }
 @media (prefers-reduced-motion: no-preference){
   .status-dot{ animation:pulse 2.4s ease-in-out infinite; }
 }
 @keyframes pulse{ 0%,100%{ opacity:1 } 50%{ opacity:.35 } }
 
-/* ===================== HERO ===================== */
 .hero{ padding-top:64px; }
 .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
 .hero-title{
@@ -141,7 +129,6 @@ section{ padding:88px 0; }
 .log-icon{ width:22px; height:22px; background:var(--accent-soft); border:1px solid var(--accent-line); border-radius:5px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; }
 .placeholder{ color:var(--warn); background:var(--warn-soft); padding:1px 5px; border-radius:3px; }
 
-/* ===================== СЕКЦИИ ОБЩЕЕ ===================== */
 .section-label{
   font-family:var(--font-mono); color:var(--accent); font-size:.68rem;
   text-transform:uppercase; letter-spacing:.12em; display:block; margin-bottom:6px;
@@ -150,7 +137,6 @@ section{ padding:88px 0; }
 .section-subtitle{ color:var(--ink-soft); font-size:.9rem; max-width:620px; }
 .section-header{ margin-bottom:32px; }
 
-/* ===================== ABOUT ===================== */
 .about-card{
   background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
   padding:32px; display:grid; grid-template-columns:200px 1fr; gap:32px; align-items:start;
@@ -163,7 +149,6 @@ section{ padding:88px 0; }
 .about-text p{ color:var(--ink-soft); font-size:.92rem; margin-bottom:10px; }
 .about-text p:last-child{ margin-bottom:0; }
 
-/* ===================== ДОКУМЕНТАЦИЯ / АРТЕФАКТЫ ===================== */
 .artifacts-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .artifact-card{
   background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); padding:24px;
@@ -182,10 +167,7 @@ section{ padding:88px 0; }
 .artifact-footer{ display:flex; justify-content:space-between; align-items:center; padding-top:14px; border-top:1px solid var(--line); }
 .doc-count{ font-family:var(--font-mono); font-size:.68rem; color:var(--ink-mute); }
 .artifact-open-hint{ font-size:.78rem; font-weight:600; color:var(--accent); display:flex; align-items:center; gap:4px; }
-.status-pass{ color:var(--accent); font-weight:600; }
-.status-fail{ color:var(--alert); font-weight:600; }
 
-/* ===================== МОДАЛЬНОЕ ОКНО С PDF-ДОКУМЕНТАЦИЕЙ ===================== */
 .pdf-modal-overlay{
   position:fixed; inset:0; z-index:1000; padding:24px;
   background:rgba(28,35,33,0.55); backdrop-filter:blur(3px);
@@ -235,7 +217,6 @@ body.modal-open{ overflow:hidden; }
   .pdf-doc-item .doc-project{ display:none; }
 }
 
-/* ===================== ПРОЕКТЫ ===================== */
 .projects-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
 .project-card{
   background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); padding:24px;
@@ -254,10 +235,8 @@ body.modal-open{ overflow:hidden; }
 .project-link.primary{ color:var(--accent); }
 .project-link:hover{ color:var(--accent); }
 
-/* ===================== ОБУЧЕНИЕ ===================== */
 .study-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 
-/* ===================== ТАЙМЛАЙН ПРОГРЕССА ОБУЧЕНИЯ ===================== */
 .timeline{ margin-bottom:28px; }
 .timeline-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; gap:8px; flex-wrap:wrap; }
 .timeline-date{ font-family:var(--font-mono); font-size:.68rem; color:var(--ink-mute); }
@@ -289,9 +268,7 @@ body.modal-open{ overflow:hidden; }
 .cert-link{ display:flex; align-items:center; gap:8px; background:var(--bg-inset); border:1px solid var(--line); padding:7px 9px; border-radius:6px; text-decoration:none; color:var(--ink); font-size:.76rem; font-weight:500; margin-bottom:6px; transition:all .2s; }
 .cert-link:last-child{ margin-bottom:0; }
 .cert-link:hover{ border-color:var(--accent-line); background:var(--accent-soft); color:var(--accent); }
-.cert-link i{ color:var(--alert); font-size:.8rem; }
 
-/* ===================== КОНТАКТЫ / FOOTER ===================== */
 .contact-block{ max-width:640px; margin:0 auto; text-align:center; }
 .contact-title{ font-family:var(--font-display); font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:700; margin-bottom:12px; }
 .contact-title .accent{ color:var(--accent); }
@@ -318,7 +295,6 @@ body.modal-open{ overflow:hidden; }
 .footer-link:hover{ border-color:var(--accent); color:var(--accent); }
 .footer-text{ font-family:var(--font-mono); font-size:.72rem; color:var(--ink-mute); }
 
-/* ===================== АДАПТИВ ===================== */
 @media (max-width:900px){
   .nav-links{ display:none; }
   .hero-grid{ grid-template-columns:1fr; }
@@ -336,7 +312,6 @@ body.modal-open{ overflow:hidden; }
 </head>
 <body>
 
-<!-- ============ СТАТУС-СТРОКА ============ -->
 <div class="status-strip">
   <div class="container">
     <span class="status-dot"></span>
@@ -344,7 +319,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </div>
 
-<!-- ============ NAV ============ -->
 <nav class="navbar">
   <div class="container nav-inner">
     <div class="logo">Денис Браун <span class="logo-badge">QA Engineer</span></div>
@@ -358,7 +332,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-text reveal">
@@ -367,10 +340,12 @@ body.modal-open{ overflow:hidden; }
         Ручное тестирование веб-приложений · изучаю автоматизацию на Java · пишу тест-кейсы и баг-репорты, в которых не нужно переспрашивать.
       </p>
       <div class="hero-buttons">
-        <a href="docs/resume.pdf" target="_blank" class="btn btn-primary" id="resumeBtn">
+        <a href="docs/resume.pdf" target="_blank" class="btn btn-primary">
           <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать резюме
         </a>
-        <a href="https://github.com/idenbraun" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub</a>
+        <a href="https://github.com/idenbraun" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+        </a>
       </div>
     </div>
 
@@ -396,7 +371,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 <section id="about">
   <div class="container">
     <div class="about-card reveal">
@@ -413,7 +387,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </section>
 
-<!-- ============ ОБУЧЕНИЕ ============ -->
 <section id="learning">
   <div class="container">
     <div class="section-header reveal">
@@ -468,7 +441,6 @@ body.modal-open{ overflow:hidden; }
 </div>
 </section>
 
-<!-- ============ ДОКУМЕНТАЦИЯ / АРТЕФАКТЫ ============ -->
 <section id="artifacts">
   <div class="container">
     <div class="section-header reveal">
@@ -512,7 +484,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </section>
 
-<!-- ============ ПРОЕКТЫ ============ -->
 <section id="projects">
   <div class="container">
     <div class="section-header reveal">
@@ -605,8 +576,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </section>
 
-
-<!-- ============ КОНТАКТЫ ============ -->
 <section id="contact">
   <div class="container contact-block reveal">
     <h2 class="contact-title">Готов <span class="accent">учиться на практике</span></h2>
@@ -628,7 +597,6 @@ body.modal-open{ overflow:hidden; }
   </div>
 </footer>
 
-<!-- ============ МОДАЛЬНОЕ ОКНО PDF ============ -->
 <div class="pdf-modal-overlay" id="pdfModalOverlay">
   <div class="pdf-modal">
     <div class="pdf-modal-header">
@@ -776,7 +744,6 @@ document.addEventListener('keydown', (e) => {
 
 loadDocsLibrary();
 
-// Таймлайн обучения
 (function(){
   const start = new Date(2026, 1, 1);
   const end   = new Date(2027, 3, 1);
@@ -797,7 +764,6 @@ loadDocsLibrary();
   }
 })();
 
-// Наклон карточки-бага за курсором мыши (только на десктопе)
 const logCard = document.getElementById('logCard');
 const logCardLink = document.getElementById('logCardLink');
 document.addEventListener('mousemove', (e) => {
