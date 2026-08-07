@@ -109,24 +109,26 @@ section{ padding:88px 0; }
 .log-card-link:hover::after{ opacity:1; transform:translateX(-50%) translateY(0); }
 .log-card{
   background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
-  padding:22px; box-shadow:0 20px 40px rgba(28,35,33,0.06);
+  padding:28px; box-shadow:0 20px 40px rgba(28,35,33,0.06);
   transform-style:preserve-3d; transition:border-color .3s ease, box-shadow .3s ease;
 }
 .log-card-link:hover .log-card{ border-color:var(--accent-line); box-shadow:0 20px 40px rgba(28,35,33,0.06), 0 0 32px var(--accent-soft); }
-.log-card-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.log-card-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
 .log-tag{
-  font-family:var(--font-mono); font-size:.62rem; font-weight:700; letter-spacing:.06em;
+  font-family:var(--font-mono); font-size:.64rem; font-weight:700; letter-spacing:.06em;
   color:var(--accent); background:var(--accent-soft); border:1px solid var(--accent-line);
   padding:3px 8px; border-radius:4px; text-transform:uppercase;
 }
-.log-id{ font-family:var(--font-mono); font-size:.62rem; color:var(--ink-mute); }
-.log-title{ font-weight:600; font-size:.92rem; margin-bottom:10px; }
-.log-body{
-  background:var(--bg-inset); border:1px solid var(--line); border-radius:7px;
-  padding:12px 14px; font-family:var(--font-mono); font-size:.72rem; color:var(--ink-soft); line-height:1.6;
+.log-id{ font-family:var(--font-mono); font-size:.64rem; color:var(--ink-mute); }
+.log-title{ font-weight:600; font-size:1.02rem; margin-bottom:16px; line-height:1.4; }
+.log-status-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.log-status-item{
+  display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:.76rem; color:var(--ink-soft);
 }
-.log-note{ margin-top:12px; font-size:.72rem; color:var(--ink-mute); }
-.log-icon{ width:22px; height:22px; background:var(--accent-soft); border:1px solid var(--accent-line); border-radius:5px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; }
+.log-status-label{ color:var(--ink-mute); }
+.log-status-pass{ color:var(--accent); font-weight:600; }
+.log-note{ font-size:.76rem; color:var(--ink-mute); padding-top:14px; border-top:1px solid var(--line); }
+.log-icon{ width:24px; height:24px; background:var(--accent-soft); border:1px solid var(--accent-line); border-radius:5px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; }
 .placeholder{ color:var(--warn); background:var(--warn-soft); padding:1px 5px; border-radius:3px; }
 
 .section-label{
@@ -148,6 +150,10 @@ section{ padding:88px 0; }
 .about-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 .about-text p{ color:var(--ink-soft); font-size:.92rem; margin-bottom:10px; }
 .about-text p:last-child{ margin-bottom:0; }
+.about-highlight{
+  font-style:italic; color:var(--ink); font-weight:500;
+  border-left:2px solid var(--accent-line); padding-left:14px;
+}
 
 .artifacts-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .artifact-card{
@@ -354,18 +360,16 @@ body.modal-open{ overflow:hidden; }
       <div class="log-card-head">
         <div style="display:flex;align-items:center;gap:8px">
           <div class="log-icon"><svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="8" y="6" width="8" height="12" rx="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="4" y1="10" x2="8" y2="10"/><line x1="16" y1="10" x2="20" y2="10"/><line x1="4" y1="16" x2="8" y2="14"/><line x1="16" y1="14" x2="20" y2="16"/></svg></div>
-          <span class="log-tag">[тип: баг / кейс / чек-лист]</span>
+          <span class="log-tag">Баг · исправлено</span>
         </div>
-        <span class="log-id">[ID · проект]</span>
+        <span class="log-id">Balance</span>
       </div>
-      <div class="log-title">[Короткое описание находки]</div>
-      <div class="log-body">
-[окружение]: <span class="placeholder">[заполнить]</span>
-[шаг воспроизведения]: <span class="placeholder">[заполнить]</span>
-[ожидаемо]: <span class="placeholder">[заполнить]</span>
-[по факту]: <span class="placeholder">[заполнить]</span>
+      <div class="log-title">AI-анализ зависает на медленном интернете вместо мгновенного ответа</div>
+      <div class="log-status-row">
+        <div class="log-status-item"><span class="log-status-label">Окружение:</span> Chrome · Slow 3G</div>
+        <div class="log-status-item"><span class="log-status-label">Статус:</span> <span class="log-status-pass">добавлен локальный fallback</span></div>
       </div>
-      <div class="log-note">Ссылка на исходный репозиторий/проект, где это найдено - обязательна.</div>
+      <div class="log-note">Ещё 13 таких примеров - тест-кейсы, чек-листы, баг-репорты - в разделе документации ↓</div>
     </div>
     </a>
   </div>
@@ -381,7 +385,7 @@ body.modal-open{ overflow:hidden; }
         <h3 class="section-title" style="margin-bottom:12px">Обо мне</h3>
         <p>4 года я работал в рознице - начинал с рядового продавца, закончил директором магазина в сети «Макси». За это время на собственной шкуре понял простую вещь: если в отчёте цифры не сходятся хоть на копейку, это не мелочь - это повод разобраться, где, что и почему. Инвентаризации, недостачи, разбор браков с поставщиками - по сути, я всё это время искал, где что-то пошло не так. Просто не называл это тестированием.</p>
         <p>Сейчас учусь на инженера по тестированию в расширенном курсе от Нетологии. Учу Java - буду писать автотесты, а не только руками кликать по интерфейсу. Чтобы не быть голословным, пишу и тестирую свои же пет-проекты и маленькие коммерческие сайты услуг. Примеры оформленных мной QA-документов: тест-кейсы, чек-листы, баг-репорты - можно посмотреть ниже.</p>
-        <p>Я многого не знаю, но знаю точно, что учусь и не боюсь лезть в то, в чём пока не разбираюсь.</p>
+        <p class="about-highlight">Я многого не знаю, но знаю точно, что учусь и не боюсь лезть в то, в чём пока не разбираюсь.</p>
       </div>
     </div>
   </div>
