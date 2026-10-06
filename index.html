@@ -7,6 +7,13 @@
 <meta property="og:title" content="Денис Браун - QA Engineer">
 <meta property="og:description" content="Ручное тестирование веб-приложений · изучаю автоматизацию на Java · тест-кейсы, чек-листы и баг-репорты на реальных проектах.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://idenbraun.github.io/idenbraun/">
+<meta property="og:image" content="https://idenbraun.github.io/idenbraun/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Денис Браун - QA Engineer. Тестирую софт, чтобы баги не тестировали ваших пользователей">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230F6B5C'/%3E%3Cpath d='M8 12.5l2.5 2.5L16 9' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Денис Браун - QA Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,6 +135,7 @@ section{ padding:88px 0; }
 .log-status-label{ color:var(--ink-mute); }
 .log-status-pass{ color:var(--accent); font-weight:600; }
 .log-note{ font-size:.76rem; color:var(--ink-mute); padding-top:14px; border-top:1px solid var(--line); }
+.log-note .nw{ white-space:nowrap; }
 .log-icon{ width:24px; height:24px; background:var(--accent-soft); border:1px solid var(--accent-line); border-radius:5px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; }
 .placeholder{ color:var(--warn); background:var(--warn-soft); padding:1px 5px; border-radius:3px; }
 
@@ -150,6 +158,12 @@ section{ padding:88px 0; }
 .about-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 .about-text p{ color:var(--ink-soft); font-size:.92rem; margin-bottom:10px; }
 .about-text p:last-child{ margin-bottom:0; }
+.about-text p.about-lead{ color:var(--ink); font-weight:500; margin-bottom:8px; }
+.about-list{ list-style:none; margin:0 0 14px; }
+.about-list li{ position:relative; padding-left:24px; margin-bottom:8px; font-size:.92rem; color:var(--ink-soft); }
+.about-list li:last-child{ margin-bottom:0; }
+.about-list li::before{ content:'✓'; position:absolute; left:0; top:1px; font-weight:700; font-size:.82rem; color:var(--accent); }
+.about-list strong{ color:var(--ink); font-weight:600; }
 .about-highlight{
   font-style:italic; color:var(--ink); font-weight:500;
   border-left:2px solid var(--accent-line); padding-left:14px;
@@ -188,6 +202,7 @@ section{ padding:88px 0; }
   transition:transform .3s cubic-bezier(0.16,1,0.3,1), opacity .25s ease;
 }
 .pdf-modal-overlay.active .pdf-modal{ transform:scale(1) translateY(0); opacity:1; }
+.pdf-modal:focus{ outline:none; }
 .pdf-modal-header{ display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid var(--line); flex-shrink:0; }
 .pdf-modal-type{ font-family:var(--font-mono); font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:2px; }
 .pdf-modal-title{ font-weight:700; font-size:1rem; }
@@ -323,6 +338,64 @@ body.modal-open{ overflow:hidden; }
   .logo{ flex-wrap:wrap; row-gap:6px; font-size:.98rem; }
   .about-photo{ width:75%; max-width:280px; }
 }
+
+/* ===== Инструменты ===== */
+.tools-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:52px 56px; }
+.tool-group-label{
+  font-family:var(--font-mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute);
+  padding-bottom:14px; margin-bottom:24px; border-bottom:1px solid var(--line);
+}
+.tool-group-items{ display:flex; flex-wrap:wrap; align-items:flex-start; gap:24px 26px; margin-left:-8px; }
+
+.app{ display:flex; flex-direction:column; align-items:center; gap:8px; width:80px; }
+.app-icon{
+  width:64px; height:64px; display:block; object-fit:contain;
+  filter:drop-shadow(0 3px 5px rgba(28,35,33,.18));
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), filter .25s ease;
+}
+.app-name{ font-size:.74rem; font-weight:500; color:var(--ink-soft); text-align:center; line-height:1.25; transition:color .2s; }
+.app:hover .app-icon{ transform:translateY(-6px) scale(1.14); filter:drop-shadow(0 10px 12px rgba(28,35,33,.26)); }
+.app:hover .app-name{ color:var(--ink); }
+
+/* пока нет иконки: аккуратная плитка с монограммой. Замена: <img class="app-icon" src="img/tools/NAME.png" alt="" loading="lazy"> */
+.app-stub{
+  /* 52px + 6px полей = та же визуальная площадь, что у настоящих иконок (они занимают ~82% от 64px) */
+  width:52px; height:52px; margin:6px 0; border-radius:12px; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg, var(--c1,#8E9AA6), var(--c2,#4B5560));
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 -1px 0 rgba(0,0,0,.12) inset, 0 3px 6px rgba(28,35,33,.22);
+  font-family:var(--font-mono); font-size:.8rem; font-weight:700; letter-spacing:.01em; color:var(--fg,#fff);
+  text-shadow:0 1px 1px rgba(0,0,0,.18);
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.app-stub::after{ content:""; position:absolute; left:0; right:0; top:0; height:50%; background:linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0)); pointer-events:none; }
+.s-devtools{ --c1:#5B8DEF; --c2:#2D55C9; }
+.s-jira{ --c1:#2F8CFF; --c2:#0A4FC4; }
+.s-java{ --c1:#F59A2B; --c2:#D9461F; }
+.s-js{ --c1:#F7E02A; --c2:#E5BF00; --fg:#262200; text-shadow:none; }
+.s-sql{ --c1:#4A93D1; --c2:#1F5E99; }
+.s-html{ --c1:#F57C3B; --c2:#D93F22; }
+.s-maven{ --c1:#D4274A; --c2:#8C1030; font-size:.74rem; }
+.s-gradle{ --c1:#27A9B0; --c2:#06404B; }
+.s-git{ --c1:#F4623F; --c2:#C0351B; }
+.s-mac{ --c1:#A3AEB9; --c2:#58636F; }
+.app:hover .app-stub{ transform:translateY(-6px) scale(1.14); box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 -1px 0 rgba(0,0,0,.12) inset, 0 10px 14px rgba(28,35,33,.28); }
+
+.app-level{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.04em; margin-top:-4px; color:var(--ink-mute); }
+.app-level.main{ color:var(--accent); }
+.app-level.learning{ color:var(--warn); }
+
+@media (max-width:900px){
+  .tools-list{ grid-template-columns:repeat(2,1fr); gap:44px 40px; }
+}
+@media (max-width:640px){
+  .tools-list{ grid-template-columns:1fr; gap:40px; }
+  .tool-group-items{ gap:22px 18px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .app-icon,.app-stub{ transition:none; }
+  .app:hover .app-icon,.app:hover .app-stub{ transform:none; }
+}
 </style>
 </head>
 <body>
@@ -340,6 +413,7 @@ body.modal-open{ overflow:hidden; }
     <div class="nav-links">
       <a class="nav-link" href="#about">Обо мне</a>
       <a class="nav-link" href="#learning">Обучение</a>
+      <a class="nav-link" href="#tools">Инструменты</a>
       <a class="nav-link" href="#artifacts">Документация</a>
       <a class="nav-link" href="#projects">Проекты</a>
       <a class="nav-link" href="#contact">Контакты</a>
@@ -378,7 +452,7 @@ body.modal-open{ overflow:hidden; }
         <div class="log-status-item"><span class="log-status-label">Окружение:</span> Chrome · Slow 3G</div>
         <div class="log-status-item"><span class="log-status-label">Статус:</span> <span class="log-status-pass">добавлен локальный fallback</span></div>
       </div>
-      <div class="log-note">Ещё 13 таких примеров - тест-кейсы, чек-листы, баг-репорты - в разделе документации ↓</div>
+      <div class="log-note" id="logNote">Тест-кейсы, чек-листы, баг-репорты - в разделе документации ↓</div>
     </div>
     </a>
   </div>
@@ -392,9 +466,14 @@ body.modal-open{ overflow:hidden; }
       </div>
       <div class="about-text">
         <h3 class="section-title" style="margin-bottom:12px">Обо мне</h3>
-        <p>4 года я работал в рознице - начинал с рядового продавца, закончил директором магазина в сети «Макси». За это время на собственной шкуре понял простую вещь: если в отчёте цифры не сходятся хоть на копейку, это не мелочь - это повод разобраться, где, что и почему. Инвентаризации, недостачи, разбор браков с поставщиками - по сути, я всё это время искал, где что-то пошло не так. Просто не называл это тестированием.</p>
-        <p>Сейчас учусь на инженера по тестированию в расширенном курсе от Нетологии. Учу Java - буду писать автотесты, а не только руками кликать по интерфейсу. Чтобы не быть голословным, пишу и тестирую свои же пет-проекты и маленькие коммерческие сайты услуг. Примеры оформленных мной QA-документов: тест-кейсы, чек-листы, баг-репорты - можно посмотреть ниже.</p>
-        <p class="about-highlight">Я многого не знаю, но знаю точно, что учусь и не боюсь лезть в то, в чём пока не разбираюсь.</p>
+        <p>Четыре года я искал, где что-то пошло не так. Начинал рядовым продавцом, вырос до директора магазина в розничной сети. Инвентаризации, недостачи, разбор брака с поставщиками - везде одно: если цифры не сходятся хоть на копейку, надо разобраться, где, что и почему. Просто тогда это не называлось тестированием.</p>
+        <p class="about-lead">Из розницы я принёс в QA то, что в тестировании ценят больше всего:</p>
+        <ul class="about-list">
+          <li><strong>Внимательность к деталям.</strong> Привык сверять факт с ожиданием и не пропускать расхождения.</li>
+          <li><strong>Умение описать проблему так, чтобы её починили.</strong> Раньше разбирал брак с поставщиками, теперь пишу баг-репорты, в которых не нужно переспрашивать.</li>
+          <li><strong>Ответственность и работа с людьми.</strong> Руководил командой магазина и отвечал за результат, поэтому не боюсь сроков и умею договариваться.</li>
+        </ul>
+        <p>Сейчас прохожу обучение в Нетологии: сертификаты по пройденным разделам собраны ниже. Чтобы глубже погрузиться в программирование, практикуюсь на своих пет-проектах, а примеры документации можно посмотреть в разделе «Документация».</p>
       </div>
     </div>
   </div>
@@ -455,6 +534,74 @@ body.modal-open{ overflow:hidden; }
 </div>
 </section>
 
+<section id="tools">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Стек</span>
+      <h2 class="section-title">Инструменты и технологии</h2>
+      <p class="section-subtitle">Что использую при тестировании, автоматизации и работе с кодом.</p>
+    </div>
+
+    <div class="tools-list">
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Тестирование</div>
+      <div class="tool-group-items">
+        <div class="app"><div class="app-stub s-devtools" aria-hidden="true">DT</div><span class="app-name">DevTools</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/postman.png" alt="" loading="lazy"><span class="app-name">Postman</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/dbeaver.png" alt="" loading="lazy"><span class="app-name">DBeaver</span></div>
+      </div>
+    </div>
+
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Баг-трекинг и макеты</div>
+      <div class="tool-group-items">
+        <div class="app"><div class="app-stub s-jira" aria-hidden="true">JR</div><span class="app-name">Jira</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/figma.png" alt="" loading="lazy"><span class="app-name">Figma</span></div>
+      </div>
+    </div>
+
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Майнд-мапы</div>
+      <div class="tool-group-items">
+        <div class="app"><img class="app-icon" src="img/tools/miro.png" alt="" loading="lazy"><span class="app-name">Miro</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/obsidian.png" alt="" loading="lazy"><span class="app-name">Obsidian</span></div>
+      </div>
+    </div>
+
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Языки</div>
+      <div class="tool-group-items">
+        <div class="app"><div class="app-stub s-java" aria-hidden="true">JV</div><span class="app-name">Java</span><span class="app-level main">основной</span></div>
+        <div class="app"><div class="app-stub s-js" aria-hidden="true">JS</div><span class="app-name">JavaScript</span><span class="app-level learning">изучаю</span></div>
+        <div class="app"><div class="app-stub s-sql" aria-hidden="true">SQL</div><span class="app-name">SQL</span></div>
+        <div class="app"><div class="app-stub s-html" aria-hidden="true">&lt;/&gt;</div><span class="app-name">HTML / CSS</span></div>
+      </div>
+    </div>
+
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Автоматизация</div>
+      <div class="tool-group-items">
+        <div class="app"><img class="app-icon" src="img/tools/intellij.png" alt="" loading="lazy"><span class="app-name">IntelliJ IDEA</span></div>
+        <div class="app"><div class="app-stub s-maven" aria-hidden="true">MVN</div><span class="app-name">Maven</span></div>
+        <div class="app"><div class="app-stub s-gradle" aria-hidden="true">GR</div><span class="app-name">Gradle</span></div>
+      </div>
+    </div>
+
+    <div class="tool-group reveal">
+      <div class="tool-group-label">Рабочая среда</div>
+      <div class="tool-group-items">
+        <div class="app"><img class="app-icon" src="img/tools/terminal.png" alt="" loading="lazy"><span class="app-name">Terminal</span></div>
+        <div class="app"><div class="app-stub s-git" aria-hidden="true">GIT</div><span class="app-name">Git</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/github.png" alt="" loading="lazy"><span class="app-name">GitHub</span></div>
+        <div class="app"><img class="app-icon" src="img/tools/docker.png" alt="" loading="lazy"><span class="app-name">Docker</span></div>
+        <div class="app"><div class="app-stub s-mac" aria-hidden="true">mac</div><span class="app-name">macOS</span></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="artifacts">
   <div class="container">
     <div class="section-header reveal">
@@ -502,7 +649,7 @@ body.modal-open{ overflow:hidden; }
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">// Пет-проекты</span>
-      <h2 class="section-title">Спроектированно и построено мной</h2>
+      <h2 class="section-title">Спроектировано и построено мной</h2>
     </div>
     <div class="projects-grid">
 
@@ -606,18 +753,6 @@ body.modal-open{ overflow:hidden; }
         </div>
       </div>
 
-      <div class="project-card project-card-placeholder reveal">
-        <div class="project-header">
-          <div class="project-icon project-icon-muted"><svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div>
-            <div class="project-title">Новый проект</div>
-            <div class="project-type">В разработке</div>
-          </div>
-        </div>
-        <p class="project-desc">Собираю следующий пет-проект. Ссылка на GitHub и живую версию появятся здесь, когда будет что показать.</p>
-        <div class="project-links project-links-placeholder">Скоро</div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -644,14 +779,14 @@ body.modal-open{ overflow:hidden; }
 </footer>
 
 <div class="pdf-modal-overlay" id="pdfModalOverlay">
-  <div class="pdf-modal">
+  <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalType pdfModalTitle" tabindex="-1">
     <div class="pdf-modal-header">
       <div>
         <div class="pdf-modal-type" id="pdfModalType"></div>
         <div class="pdf-modal-title" id="pdfModalTitle"></div>
       </div>
       <div class="pdf-modal-actions">
-        <a href="#" id="pdfModalDownload" download class="pdf-modal-close" title="Скачать PDF" style="display:none;">
+        <a href="#" id="pdfModalDownload" download class="pdf-modal-close" title="Скачать PDF" aria-label="Скачать PDF" style="display:none;">
           <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </a>
         <button class="pdf-modal-close" id="pdfModalClose" aria-label="Закрыть">
@@ -663,6 +798,7 @@ body.modal-open{ overflow:hidden; }
       <div class="pdf-modal-sidebar" id="pdfModalSidebar"></div>
       <iframe class="pdf-modal-frame" id="pdfModalFrame" title="Документ"></iframe>
     </div>
+    <span id="pdfModalTrapEnd" tabindex="0"></span>
   </div>
 </div>
 
@@ -673,6 +809,9 @@ const pdfType = document.getElementById('pdfModalType');
 const pdfTitle = document.getElementById('pdfModalTitle');
 const pdfSidebar = document.getElementById('pdfModalSidebar');
 const pdfDownloadBtn = document.getElementById('pdfModalDownload');
+const pdfModalEl = pdfOverlay.querySelector('.pdf-modal');
+const pdfTrapEnd = document.getElementById('pdfModalTrapEnd'); // невидимый ограничитель: замыкает Tab внутри окна
+let lastFocusedEl = null; // кто открыл окно, туда вернём фокус при закрытии
 
 const fallbackLibrary = {
   resume:    { label: 'Резюме',      docs: [{ title: 'Резюме Дениса Брауна', file: 'resume.pdf' }] },
@@ -683,19 +822,52 @@ const fallbackLibrary = {
 
 let docsLibrary = fallbackLibrary;
 
-function pluralDocs(n){
+// Склонение по числу: plural(5, ['файл','файла','файлов']) -> 'файлов'
+function plural(n, [one, few, many]){
   const mod10 = n % 10, mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return 'документ';
-  if ([2,3,4].includes(mod10) && ![12,13,14].includes(mod100)) return 'документа';
-  return 'документов';
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few;
+  return many;
+}
+function pluralDocs(n){ return plural(n, ['документ', 'документа', 'документов']); }
+
+function countDocs(key){
+  const cat = docsLibrary[key];
+  return (cat && Array.isArray(cat.docs)) ? cat.docs.length : 0;
+}
+
+// Какие категории считаем в карточке бага (резюме сюда не входит)
+const HERO_COUNT_CATEGORIES = [
+  { key: 'testcase',  forms: ['тест-кейс', 'тест-кейса', 'тест-кейсов'] },
+  { key: 'checklist', forms: ['чек-лист',  'чек-листа',  'чек-листов']  },
+  { key: 'bugreport', forms: ['баг-репорт', 'баг-репорта', 'баг-репортов'] }
+];
+
+function renderHeroNote(){
+  const note = document.getElementById('logNote');
+  if (!note) return;
+  const parts = HERO_COUNT_CATEGORIES
+    .map(c => ({ n: countDocs(c.key), forms: c.forms }))
+    .filter(c => c.n > 0);
+  const total = parts.reduce((sum, c) => sum + c.n, 0);
+  if (!total) return; // manifest не загрузился или пуст: остаётся запасной текст из HTML
+  note.textContent = `В разделе документации ${total} ${pluralDocs(total)}: `;
+  parts.forEach((c, i) => {
+    if (i) note.append(' · ');
+    const span = document.createElement('span');
+    span.className = 'nw'; // категория переносится строкой целиком, а не рвётся по дефису
+    span.textContent = `${c.n} ${plural(c.n, c.forms)}`;
+    note.append(span);
+  });
+  note.append(' ↓');
 }
 
 function renderDocCounts(){
   document.querySelectorAll('[data-count-for]').forEach(el => {
-    const key = el.getAttribute('data-count-for');
-    const n = (docsLibrary[key] && docsLibrary[key].docs) ? docsLibrary[key].docs.length : 0;
+    const n = countDocs(el.getAttribute('data-count-for'));
     el.textContent = `${n} ${pluralDocs(n)}`;
   });
+  renderHeroNote();
 }
 
 async function loadDocsLibrary(){
@@ -730,9 +902,13 @@ function selectDoc(categoryKey, index){
   const cat = docsLibrary[categoryKey];
   if (!cat || !cat.docs || !cat.docs[index]) return;
   const doc = cat.docs[index];
-  pdfSidebar.querySelectorAll('.pdf-doc-item').forEach((el, i) => el.classList.toggle('active', i === index));
+  pdfSidebar.querySelectorAll('.pdf-doc-item').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+    if (i === index) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current');
+  });
   pdfType.textContent = cat.label;
   pdfTitle.textContent = doc.title;
+  pdfFrame.title = `${cat.label}: ${doc.title}`;
   pdfFrame.removeAttribute('srcdoc');
   pdfFrame.src = doc.file ? `docs/${doc.file}` : '';
 
@@ -745,7 +921,7 @@ function selectDoc(categoryKey, index){
   }
 }
 
-function openCategoryModal(categoryKey){
+function openCategoryModal(categoryKey, opener){
   const cat = docsLibrary[categoryKey];
   if (!cat) return;
   pdfType.textContent = cat.label;
@@ -753,6 +929,7 @@ function openCategoryModal(categoryKey){
 
   if (!cat.docs || !cat.docs.length) {
     pdfTitle.textContent = 'Документов пока нет';
+    pdfFrame.title = 'Документов пока нет';
     pdfFrame.removeAttribute('src');
     pdfFrame.srcdoc = '<div style="height:100%;display:flex;align-items:center;justify-content:center;font-family:-apple-system,sans-serif;color:#93998F;font-size:14px;text-align:center;padding:24px;box-sizing:border-box;">Документы появятся здесь, когда будут добавлены в docs/manifest.json</div>';
     pdfDownloadBtn.style.display = 'none';
@@ -761,20 +938,25 @@ function openCategoryModal(categoryKey){
     selectDoc(categoryKey, 0);
   }
 
+  lastFocusedEl = opener || document.activeElement;
   pdfOverlay.classList.add('active');
   document.body.classList.add('modal-open');
+  // окно появляется через transition по visibility, поэтому фокус ставим чуть позже
+  setTimeout(() => { if (pdfOverlay.classList.contains('active')) pdfModalEl.focus({ preventScroll: true }); }, 50);
 }
 
 function closePdfModal(){
   pdfOverlay.classList.remove('active');
   document.body.classList.remove('modal-open');
+  if (lastFocusedEl && document.contains(lastFocusedEl)) lastFocusedEl.focus({ preventScroll: true });
+  lastFocusedEl = null;
   setTimeout(() => { pdfFrame.src = ''; pdfFrame.removeAttribute('srcdoc'); }, 300);
 }
 
 document.querySelectorAll('.artifact-card').forEach(card => {
-  card.addEventListener('click', () => openCategoryModal(card.getAttribute('data-category')));
+  card.addEventListener('click', () => openCategoryModal(card.getAttribute('data-category'), card));
   card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCategoryModal(card.getAttribute('data-category')); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCategoryModal(card.getAttribute('data-category'), card); }
   });
 });
 
@@ -784,8 +966,33 @@ pdfOverlay.addEventListener('click', (e) => {
   if (e.target === pdfOverlay) closePdfModal();
 });
 
+function getModalFocusable(){
+  return [...pdfModalEl.querySelectorAll('a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])')]
+    .filter(el => el !== pdfTrapEnd && el.getClientRects().length > 0);
+}
+
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && pdfOverlay.classList.contains('active')) closePdfModal();
+  if (!pdfOverlay.classList.contains('active')) return;
+  if (e.key === 'Escape') { closePdfModal(); return; }
+  if (e.key !== 'Tab') return;
+  const items = getModalFocusable();
+  if (!items.length) { e.preventDefault(); pdfModalEl.focus(); return; }
+  const first = items[0], last = items[items.length - 1], cur = document.activeElement;
+  if (!pdfModalEl.contains(cur) || (e.shiftKey && (cur === first || cur === pdfModalEl))) {
+    e.preventDefault();
+    (e.shiftKey ? last : first).focus();
+  } else if (!e.shiftKey && cur === last) {
+    e.preventDefault();
+    first.focus();
+  }
+});
+
+// Tab после области PDF попадает на ограничитель и возвращается к первому элементу окна
+pdfTrapEnd.addEventListener('focus', () => { (getModalFocusable()[0] || pdfModalEl).focus(); });
+
+// фокус не должен уходить за окно (например, при Tab из области PDF)
+document.addEventListener('focusin', (e) => {
+  if (pdfOverlay.classList.contains('active') && !pdfModalEl.contains(e.target)) pdfModalEl.focus({ preventScroll: true });
 });
 
 loadDocsLibrary();
@@ -794,13 +1001,16 @@ loadDocsLibrary();
   const start = new Date(2026, 1, 1);
   const end   = new Date(2027, 3, 1);
   const now   = new Date();
-  const pct = Math.min(100, Math.max(0, ((now - start) / (end - start)) * 100));
+  const raw = ((now - start) / (end - start)) * 100;
+  const pct = Math.min(100, Math.max(0, raw)); // полоска и маркер никогда не выходят за 0-100%
 
   const fill = document.getElementById('timelineFill');
   const marker = document.getElementById('timelineMarker');
   const status = document.getElementById('timelineStatus');
   if (fill && marker && status) {
-    status.textContent = `~${Math.round(pct)}% курса пройдено`;
+    if (raw >= 100)      status.textContent = 'Курс завершён';
+    else if (raw <= 0)   status.textContent = 'Курс скоро начнётся';
+    else                 status.textContent = `~${Math.min(99, Math.max(1, Math.round(raw)))}% курса пройдено`; // 100% только после финиша
     requestAnimationFrame(() => {
       setTimeout(() => {
         fill.style.width = pct + '%';
