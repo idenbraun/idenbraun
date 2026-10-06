@@ -149,13 +149,15 @@ section{ padding:88px 0; }
 
 .about-card{
   background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
-  padding:32px; display:grid; grid-template-columns:200px 1fr; gap:32px; align-items:start;
+  padding:36px; display:grid; grid-template-columns:240px 1fr; column-gap:40px; row-gap:24px; align-items:center;
 }
+/* пропорции рамки фото не меняем (620/797), фото выровнено по центру относительно текста */
 .about-photo{
-  width:100%; aspect-ratio:620/797; border-radius:14px; overflow:hidden;
+  align-self:center; width:100%; aspect-ratio:620/797; border-radius:14px; overflow:hidden;
   border:1px solid var(--line); background:var(--bg-inset);
 }
 .about-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.about-text{ align-self:center; }
 .about-text p{ color:var(--ink-soft); font-size:.92rem; margin-bottom:10px; }
 .about-text p:last-child{ margin-bottom:0; }
 .about-text p.about-lead{ color:var(--ink); font-weight:500; margin-bottom:8px; }
@@ -164,10 +166,7 @@ section{ padding:88px 0; }
 .about-list li:last-child{ margin-bottom:0; }
 .about-list li::before{ content:'✓'; position:absolute; left:0; top:1px; font-weight:700; font-size:.82rem; color:var(--accent); }
 .about-list strong{ color:var(--ink); font-weight:600; }
-.about-highlight{
-  font-style:italic; color:var(--ink); font-weight:500;
-  border-left:2px solid var(--accent-line); padding-left:14px;
-}
+.about-highlight{ grid-column:1 / -1; margin:0; color:var(--ink-soft); font-size:.92rem; }
 
 .artifacts-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .artifact-card{
@@ -329,7 +328,7 @@ body.modal-open{ overflow:hidden; }
   .nav-links{ display:none; }
   .hero-grid{ grid-template-columns:1fr; }
   .artifacts-grid,.projects-grid,.study-grid{ grid-template-columns:1fr; }
-  .about-card{ grid-template-columns:1fr; gap:24px; }
+  .about-card{ grid-template-columns:1fr; gap:24px; padding:28px; }
   .about-photo{ width:60%; max-width:260px; aspect-ratio:620/797; margin:0 auto; }
 }
 @media (max-width:480px){
@@ -460,12 +459,14 @@ body.modal-open{ overflow:hidden; }
 
 <section id="about">
   <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Обо мне</h2>
+    </div>
     <div class="about-card reveal">
       <div class="about-photo">
         <img src="img/denis.jpg" alt="Денис Браун" loading="lazy">
       </div>
       <div class="about-text">
-        <h3 class="section-title" style="margin-bottom:12px">Обо мне</h3>
         <p>Четыре года я искал, где что-то пошло не так. Начинал рядовым продавцом, вырос до директора магазина в розничной сети. Инвентаризации, недостачи, разбор брака с поставщиками - везде одно: если цифры не сходятся хоть на копейку, надо разобраться, где, что и почему. Просто тогда это не называлось тестированием.</p>
         <p class="about-lead">Из розницы я принёс в QA то, что в тестировании ценят больше всего:</p>
         <ul class="about-list">
@@ -473,8 +474,8 @@ body.modal-open{ overflow:hidden; }
           <li><strong>Умение описать проблему так, чтобы её починили.</strong> Раньше разбирал брак с поставщиками, теперь пишу баг-репорты, в которых не нужно переспрашивать.</li>
           <li><strong>Ответственность и работа с людьми.</strong> Руководил командой магазина и отвечал за результат, поэтому не боюсь сроков и умею договариваться.</li>
         </ul>
-        <p>Сейчас прохожу обучение в Нетологии: сертификаты по пройденным разделам собраны ниже. Чтобы глубже погрузиться в программирование, практикуюсь на своих пет-проектах, а примеры документации можно посмотреть в разделе «Документация».</p>
       </div>
+      <p class="about-highlight">Сейчас прохожу обучение в Нетологии: сертификаты по пройденным разделам собраны ниже. Чтобы глубже погрузиться в программирование, практикуюсь на своих пет-проектах, а примеры документации можно посмотреть в разделе «Документация».</p>
     </div>
   </div>
 </section>
